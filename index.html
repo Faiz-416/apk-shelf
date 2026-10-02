@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101114">
+  <meta name="description" content="A small, clean shelf for Android apps and APK downloads.">
+  <title>APK Shelf — Android apps</title>
+  <style>
+    :root { color-scheme: dark; --bg:#101114; --panel:#17191e; --line:#292c33; --text:#f4f5f7; --muted:#9a9da7; --accent:#c6f36b; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:radial-gradient(ellipse at 50% -20%, #252a1d 0, transparent 48%),var(--bg); color:var(--text); font:16px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    a { color:inherit; text-decoration:none; }
+    .wrap { width:min(900px, calc(100% - 36px)); margin:0 auto; }
+    header { display:flex; align-items:center; justify-content:space-between; padding:28px 0; border-bottom:1px solid var(--line); }
+    .brand { display:flex; align-items:center; gap:11px; font-weight:750; letter-spacing:-.04em; font-size:19px; }
+    .mark { display:grid; place-items:center; width:35px; height:35px; border-radius:11px; color:#11140c; background:var(--accent); font-weight:900; font-size:17px; }
+    .status { color:var(--muted); font-size:12px; border:1px solid var(--line); border-radius:999px; padding:6px 10px; }
+    main { padding:64px 0 72px; }
+    .eyebrow { color:var(--accent); font-size:12px; text-transform:uppercase; letter-spacing:.16em; font-weight:750; }
+    h1 { max-width:650px; margin:14px 0 16px; font-size:clamp(38px,7vw,64px); line-height:1.02; letter-spacing:-.065em; }
+    .intro { max-width:550px; color:var(--muted); font-size:17px; margin:0; }
+    .toolbar { display:flex; gap:12px; align-items:center; justify-content:space-between; margin:42px 0 16px; }
+    .toolbar h2 { font-size:15px; margin:0; letter-spacing:-.02em; }
+    .count { font-size:12px; color:var(--muted); }
+    .apps { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+    .app { background:linear-gradient(145deg,#1a1c22,#15171b); border:1px solid var(--line); border-radius:18px; padding:20px; display:flex; flex-direction:column; min-height:230px; transition:border-color .18s,transform .18s; }
+    .app:hover { border-color:#555c42; transform:translateY(-2px); }
+    .app-top { display:flex; align-items:center; gap:13px; }
+    .app-icon { width:49px; height:49px; flex:0 0 49px; border-radius:15px; display:grid; place-items:center; background:#24291c; color:var(--accent); font-size:20px; font-weight:800; border:1px solid #343a2a; }
+    .app h3 { margin:0; font-size:17px; letter-spacing:-.03em; }
+    .version { margin-top:3px; font-size:12px; color:var(--muted); }
+    .desc { color:#b3b5bd; font-size:13px; margin:18px 0 22px; }
+    .app-bottom { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:auto; }
+    .size { color:var(--muted); font-size:12px; }
+    .download { display:inline-flex; align-items:center; justify-content:center; gap:8px; background:var(--accent); color:#171a10; border-radius:10px; padding:10px 13px; font-size:12px; font-weight:800; white-space:nowrap; }
+    .download:hover { filter:brightness(1.06); }
+    .download.disabled { background:#2a2c31; color:#858994; cursor:not-allowed; }
+    .empty-note { display:none; margin-top:14px; padding:14px 16px; border:1px dashed #3b3e46; border-radius:12px; color:var(--muted); font-size:13px; }
+    footer { display:flex; justify-content:space-between; gap:16px; padding:22px 0 30px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
+    footer strong { color:#d9dbe0; font-weight:650; }
+    @media(max-width:620px) { main{padding:45px 0 52px}.apps{grid-template-columns:1fr}.app{min-height:205px}.toolbar{margin-top:32px}footer{flex-direction:column;gap:5px} }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="#"><span class="mark">A</span><span>APK Shelf</span></a>
+      <span class="status">ANDROID DOWNLOADS</span>
+    </header>
+    <main>
+      <div class="eyebrow">Small apps. Direct downloads.</div>
+      <h1>Your apps,<br>in one place.</h1>
+      <p class="intro">A simple home for Android apps and test builds. Choose an app below to download its APK.</p>
+      <div class="toolbar">
+        <h2>Available apps</h2>
+        <span class="count" id="app-count">2 apps</span>
+      </div>
+      <section class="apps" id="apps">
+        <!-- APP CARD: duplicate this article to add another app. Update name, version, description, size, and APK link. -->
+        <article class="app">
+          <div class="app-top">
+            <div class="app-icon">A</div>
+            <div><h3>My First App</h3><div class="version">Version 1.0.0</div></div>
+          </div>
+          <p class="desc">Replace this with a short, clear description of your Android app.</p>
+          <div class="app-bottom">
+            <span class="size">APK · Add file</span>
+            <a class="download disabled" href="#" aria-disabled="true" onclick="return false;">Add APK first ↗</a>
+          </div>
+        </article>
+        <article class="app">
+          <div class="app-top">
+            <div class="app-icon">B</div>
+            <div><h3>Beta Build</h3><div class="version">Version 0.1.0</div></div>
+          </div>
+          <p class="desc">A second placeholder card for a test build or another app.</p>
+          <div class="app-bottom">
+            <span class="size">APK · Add file</span>
+            <a class="download disabled" href="#" aria-disabled="true" onclick="return false;">Add APK first ↗</a>
+          </div>
+        </article>
+      </section>
+      <div class="empty-note">Only install APKs from sources you trust. Android may ask you to allow installation from your browser.</div>
+    </main>
+    <footer>
+      <span>© <span id="year"></span> APK Shelf</span>
+      <span>Built for Android · <strong>Install thoughtfully.</strong></span>
+    </footer>
+  </div>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
