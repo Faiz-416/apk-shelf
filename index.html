@@ -38,12 +38,32 @@
     footer { display:flex; justify-content:space-between; gap:16px; padding:22px 0 30px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
     footer strong { color:#d9dbe0; font-weight:650; }
     @media(max-width:620px) { main{padding:45px 0 52px}.apps{grid-template-columns:1fr}.app{min-height:205px}.toolbar{margin-top:32px}footer{flex-direction:column;gap:5px} }
+    .brand-logo {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+  display: block;
+  border-radius: 11px;
+}
+
+.app-icon {
+  width: 49px;
+  height: 49px;
+  flex: 0 0 49px;
+  object-fit: contain;
+  display: block;
+  border-radius: 15px;
+}
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
-      <a class="brand" href="#"><span class="mark">A</span><span>APK Shelf</span></a>
+      <a class="brand" href="#"><img
+  src="/assets/apk-shelf-logo.png"
+  alt="APK Shelf"
+  class="brand-logo"
+/><span>APK Shelf</span></a>
       <span class="status">ANDROID DOWNLOADS</span>
     </header>
     <main>
@@ -57,7 +77,11 @@
       <section class="apps">
         <article class="app">
           <div class="app-top">
-            <div class="app-icon">AT</div>
+            <img
+  src="/assets/attendance-tracker-logo.png"
+  alt="Attendance Tracker"
+  class="app-icon"
+/>
             <div><h3>Attendance Tracker</h3><div class="version">Version 1.0.1</div></div>
           </div>
           <p class="desc">Android attendance-tracking app. Download the APK to install it on your device.</p>
